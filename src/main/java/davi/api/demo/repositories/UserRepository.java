@@ -1,6 +1,6 @@
-package davi.api.demo.domain.repositories;
+package davi.api.demo.repositories;
 
 
-interface UserRepository {
+public interface UserRepository {
     public Object findUserById(String userId);
 }

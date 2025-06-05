@@ -1,4 +1,4 @@
-package davi.api.demo.api;
+package davi.api.demo.api.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
