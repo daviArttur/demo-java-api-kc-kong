@@ -17,10 +17,7 @@ public class GetUserUseCase {
 
     public Object perform(GetUserUseCaseInput input) {
         try {
-            var
-            userRepository.save();
-            var result = userRepository.findUsers();
-            return result;
+            return userRepository.findUsers();
         } catch (Exception e) {
             e.toString();
             return null;

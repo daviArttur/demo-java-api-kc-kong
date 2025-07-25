@@ -2,11 +2,13 @@ package davi.api.demo.domain.entities;
 
 public class User {
     public final Long id;
-    public final String name;
+    public final String email;
+    public final String password;
 
-    public User(Long id, String name) {
+    public User(Long id, String email, String password) {
         this.id = id;
-        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     // Getters and business rules

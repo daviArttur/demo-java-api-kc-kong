@@ -1,4 +1,3 @@
 package davi.api.demo.application.inputs;
 
-public class CreateUserInput {
-}
+public record CreateUserInput(String email) { }

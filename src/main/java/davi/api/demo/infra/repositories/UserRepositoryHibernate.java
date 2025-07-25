@@ -19,12 +19,13 @@ class UserMapper {
     public static UserModel toEntity(User user) {
         UserModel entity = new UserModel();
         entity.id = user.id;
-        entity.name = user.name;
+        entity.email = user.email;
+        entity.password = user.password;
         return entity;
     }
 
     public static User toDomain(UserModel entity) {
-        return new User(entity.id, entity.name);
+        return new User(entity.id, entity.email, entity.password);
     }
 }
 
@@ -48,7 +49,8 @@ public class UserRepositoryHibernate implements UserRepository {
     }
 
     public void save(User user) {
-
+        var userModel = UserMapper.toEntity(user);
+        userJpaRepository.save(userModel);
     }
 
     //public Object findUserById(String userId);
