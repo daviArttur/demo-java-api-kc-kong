@@ -8,9 +8,8 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-
+    public String uuid;
     public String email;
-    public String password;
 
     // Getters and setters
 }

@@ -13,19 +13,20 @@ import java.util.List;
 
 
 interface UserJpaRepository extends JpaRepository<UserModel, Long> {}
+interface CampaignJpaRepository extends JpaRepository<UserModel, Long> {}
 
 class UserMapper {
 
     public static UserModel toEntity(User user) {
         UserModel entity = new UserModel();
-        entity.id = user.id;
+        entity.id = user.getId();
+        entity.uuid = user.getUuid();
         entity.email = user.email;
-        entity.password = user.password;
         return entity;
     }
 
     public static User toDomain(UserModel entity) {
-        return new User(entity.id, entity.email, entity.password);
+        return new User(entity.id, entity.uuid, entity.email);
     }
 }
 
@@ -36,6 +37,33 @@ public class UserRepositoryHibernate implements UserRepository {
 
     UserRepositoryHibernate(UserJpaRepository userJpaRepository) {
         this.userJpaRepository = userJpaRepository;
+    }
+
+    @Override
+    public User findUserById(String id) {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsers() {
+        return userJpaRepository.findAll().stream().map(UserMapper::toDomain).toList();
+    }
+
+    public void save(User user) {
+        var userModel = UserMapper.toEntity(user);
+        userJpaRepository.save(userModel);
+    }
+
+    //public Object findUserById(String userId);
+}
+
+@Repository
+public class CampaignRepositoryHibernate implements UserRepository {
+
+    private CampaignJpaRepository campaignJpaRepository;
+
+    CampaignRepositoryHibernate(UserJpaRepository userJpaRepository) {
+        this.campaignJpaRepository = userJpaRepository;
     }
 
     @Override
