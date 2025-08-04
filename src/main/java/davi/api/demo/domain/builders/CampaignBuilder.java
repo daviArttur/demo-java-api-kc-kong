@@ -9,9 +9,10 @@ import davi.api.demo.domain.entities.ItemDonationConfig;
 import davi.api.demo.domain.entities.MoneyDonationConfig;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CampaignBuilder {
-    private Campaign campaign;
+    private final Campaign campaign = new Campaign();
 
     public void withBasicCampaignData(DomainCampaignBasicDataDto dto) {
         campaign.setDescription(dto.description());
@@ -19,17 +20,17 @@ public class CampaignBuilder {
     }
 
     public void withMoneyDonationConfig(DomainCreateMoneyDonationConfigDto dto) {
-        var config = new MoneyDonationConfig(null, null, dto.enabled());
+        var config = new MoneyDonationConfig(null, UUID.randomUUID().toString(), dto.enabled());
         config.setGoal(dto.goal());
         config.setUseDescription(dto.useDescription());
         campaign.setMoneyDonationConfig(config);
     }
 
     public void withItemDonationConfig(DomainCreateItemDonationConfigDto createItemDonationConfigDto) {
-        var config = new ItemDonationConfig(null, null, createItemDonationConfigDto.enabled());
+        var config = new ItemDonationConfig(null, UUID.randomUUID().toString(), createItemDonationConfigDto.enabled());
         var items = new ArrayList<Item>();
         for (var dto : createItemDonationConfigDto.createItemsDto()) {
-            var item = new Item(null, null, dto.name(), dto.quantityReceived(), dto.quantityGoal());
+            var item = new Item(null, UUID.randomUUID().toString(), dto.name(), dto.quantityGoal(), dto.quantityReceived());
             items.add(item);
         }
         config.setItems(items);

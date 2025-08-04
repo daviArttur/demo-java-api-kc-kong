@@ -23,7 +23,7 @@ public class CreateUserUseCase {
     public void perform(CreateUserInput input) {
         try {
             var encodedPassword = passwordService.encode(input.password());
-            var user = new User(null, null, input.email(), encodedPassword);
+            var user = new User(null, null, input.email());
             userRepository.save(user);
 
         } catch (Exception e) {

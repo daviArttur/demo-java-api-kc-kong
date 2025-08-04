@@ -5,6 +5,7 @@ package davi.api.demo.infra.repositories;
 import davi.api.demo.domain.entities.User;
 import davi.api.demo.domain.repositories.UserRepository;
 import davi.api.demo.infra.repositories.models.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +14,6 @@ import java.util.List;
 
 
 interface UserJpaRepository extends JpaRepository<UserModel, Long> {}
-interface CampaignJpaRepository extends JpaRepository<UserModel, Long> {}
 
 class UserMapper {
 
@@ -57,29 +57,3 @@ public class UserRepositoryHibernate implements UserRepository {
     //public Object findUserById(String userId);
 }
 
-@Repository
-public class CampaignRepositoryHibernate implements UserRepository {
-
-    private CampaignJpaRepository campaignJpaRepository;
-
-    CampaignRepositoryHibernate(UserJpaRepository userJpaRepository) {
-        this.campaignJpaRepository = userJpaRepository;
-    }
-
-    @Override
-    public User findUserById(String id) {
-        return null;
-    }
-
-    @Override
-    public List<User> findUsers() {
-        return userJpaRepository.findAll().stream().map(UserMapper::toDomain).toList();
-    }
-
-    public void save(User user) {
-        var userModel = UserMapper.toEntity(user);
-        userJpaRepository.save(userModel);
-    }
-
-    //public Object findUserById(String userId);
-}

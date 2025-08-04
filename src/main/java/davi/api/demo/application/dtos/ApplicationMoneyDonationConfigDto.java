@@ -1,7 +1,7 @@
 package davi.api.demo.application.dtos;
 
-public record ApplicationCreateMoneyDonationConfigDto(
+public record ApplicationMoneyDonationConfigDto(
         boolean enabled,
         Long goal,
         String useDescription
-) {}
+) {} 

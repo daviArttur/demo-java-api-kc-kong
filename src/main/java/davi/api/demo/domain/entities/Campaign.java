@@ -2,13 +2,15 @@ package davi.api.demo.domain.entities;
 
 import davi.api.demo.domain.dtos.DomainCreateCampaignDto;
 
+import java.util.UUID;
+
 public class Campaign extends Entity {
     private String title;
     private String description;
     private MoneyDonationConfig moneyDonationConfig;
     private ItemDonationConfig itemDonationConfig;
 
-    public Campaign () { super(null, null); };
+    public Campaign () { super(null, UUID.randomUUID().toString()); };
 
     public Campaign (DomainCreateCampaignDto dto) throws Exception {
         super(dto.id(), dto.uuid());
@@ -22,9 +24,16 @@ public class Campaign extends Entity {
     public void setMoneyDonationConfig(MoneyDonationConfig config) {
         moneyDonationConfig = config;
     }
+    public MoneyDonationConfig getMoneyDonationConfig() {
+        return moneyDonationConfig;
+    }
 
     public void setItemDonationConfig(ItemDonationConfig config) {
         itemDonationConfig = config;
+    }
+
+    public ItemDonationConfig getItemDonationConfig() {
+        return itemDonationConfig;
     }
 
     public String getTitle() {

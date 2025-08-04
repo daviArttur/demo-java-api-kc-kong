@@ -13,3 +13,4 @@ public class UserModel {
 
     // Getters and setters
 }
+
