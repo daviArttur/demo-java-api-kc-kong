@@ -12,7 +12,7 @@ import java.util.Map;
 public abstract class BaseController {
 
     @Autowired
-    protected HttpServletRequest request;
+    public HttpServletRequest request;
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     public String getUserIdFromAccessToken() {

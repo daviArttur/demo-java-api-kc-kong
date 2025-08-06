@@ -1,5 +1,10 @@
 package davi.api.demo.domain.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public abstract class DonationConfig extends Entity {
     private boolean enabled;
 
@@ -10,9 +15,5 @@ public abstract class DonationConfig extends Entity {
 
     public boolean isEnabled() {
         return enabled;
-    }
-
-    public void setEnable(boolean enabled) {
-        this.enabled = enabled;
     }
 }

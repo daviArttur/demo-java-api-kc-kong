@@ -1,9 +1,13 @@
 package davi.api.demo.domain.entities;
 
 import davi.api.demo.domain.dtos.DomainCreateCampaignDto;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.UUID;
 
+@Setter
+@Getter
 public class Campaign extends Entity {
     private String title;
     private String description;
@@ -20,37 +24,6 @@ public class Campaign extends Entity {
         this.itemDonationConfig = dto.itemDonationConfig();
         validate();
     };
-
-    public void setMoneyDonationConfig(MoneyDonationConfig config) {
-        moneyDonationConfig = config;
-    }
-    public MoneyDonationConfig getMoneyDonationConfig() {
-        return moneyDonationConfig;
-    }
-
-    public void setItemDonationConfig(ItemDonationConfig config) {
-        itemDonationConfig = config;
-    }
-
-    public ItemDonationConfig getItemDonationConfig() {
-        return itemDonationConfig;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public void validate() throws Exception {
         if (title == null || title.length() < 4 || title.length() > 40) {

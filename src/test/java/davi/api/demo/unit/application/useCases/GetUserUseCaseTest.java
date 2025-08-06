@@ -1,6 +1,7 @@
-package davi.api.demo.application.useCases;
+package davi.api.demo.unit.application.useCases;
 
 import davi.api.demo.application.inputs.GetUserUseCaseInput;
+import davi.api.demo.application.useCases.GetUserUseCase;
 import davi.api.demo.infra.repositories.UserRepositoryHibernate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

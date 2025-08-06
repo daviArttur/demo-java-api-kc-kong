@@ -1,3 +1,6 @@
 package davi.api.demo.domain.dtos;
 
-public record DomainCampaignBasicDataDto(String title, String description) { };
+public record DomainCampaignBasicDataDto(
+        String title,
+        String description
+) { };

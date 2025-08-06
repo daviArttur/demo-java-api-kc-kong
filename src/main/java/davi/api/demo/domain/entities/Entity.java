@@ -1,7 +1,12 @@
 package davi.api.demo.domain.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.UUID;
 
+@Getter
+@Setter
 public abstract class Entity {
     private final Long id;
     private String uuid;
@@ -13,8 +18,4 @@ public abstract class Entity {
         this.uuid = uuid;
         this.id = id;
     }
-
-    public Long getId() { return id; }
-
-    public String getUuid() { return uuid; }
 }

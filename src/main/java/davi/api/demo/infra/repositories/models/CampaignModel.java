@@ -8,13 +8,7 @@ import lombok.Setter;
 @Table(name = "campaigns")
 @Getter
 @Setter
-public class CampaignModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, unique = true, updatable = false)
-    private String uuid;
+public class CampaignModel extends Model {
     private String title;
     private String description;
 

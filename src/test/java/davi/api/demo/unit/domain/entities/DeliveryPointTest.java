@@ -1,4 +1,4 @@
-package davi.api.demo.domain.entities;
+package davi.api.demo.unit.domain.entities;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;

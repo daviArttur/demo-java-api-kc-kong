@@ -1,7 +1,11 @@
 package davi.api.demo.domain.entities;
 
 import davi.api.demo.domain.enums.PaymentType;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class MoneyDonation extends Entity {
     private Long amount;
     private PaymentType paymentType;
@@ -12,14 +16,6 @@ public class MoneyDonation extends Entity {
         this.paymentType = paymentType;
         validate();
     }
-
-    public Long getAmount() { return amount; }
-
-    public void setAmount(Long amount) { this.amount = amount; }
-
-    public PaymentType getPaymentType() { return paymentType; }
-
-    public void setPaymentType(PaymentType paymentType) { this.paymentType = paymentType; }
 
     public void validate() throws IllegalArgumentException {
         if (this.amount == null || amount < 100) {

@@ -8,15 +8,7 @@ import lombok.Setter;
 @Table(name = "money_donation_configs")
 @Getter
 @Setter
-public class MoneyDonationConfigModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true, updatable = false)
-    private String uuid;
-
+public class MoneyDonationConfigModel extends Model {
     @Column(nullable = false)
     private boolean enabled;
 

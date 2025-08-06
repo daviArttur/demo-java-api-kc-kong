@@ -9,8 +9,8 @@ public class CampaignMapper {
         if (campaign == null) return null;
 
         CampaignModel entity = new CampaignModel();
-        entity.setId(campaign.getId());
-        entity.setUuid(campaign.getUuid());
+//        entity.setId(campaign.getId());
+//        entity.setUuid(campaign.getUuid());
         entity.setTitle(campaign.getTitle());
         entity.setDescription(campaign.getDescription());
         entity.setMoneyDonationConfig(MoneyDonationConfigMapper.toEntity(campaign.getMoneyDonationConfig()));

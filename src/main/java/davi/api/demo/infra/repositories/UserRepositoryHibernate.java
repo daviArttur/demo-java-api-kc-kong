@@ -19,14 +19,14 @@ class UserMapper {
 
     public static UserModel toEntity(User user) {
         UserModel entity = new UserModel();
-        entity.id = user.getId();
-        entity.uuid = user.getUuid();
+        entity.setId(user.getId());
+        entity.setUuid(user.getUuid());
         entity.email = user.email;
         return entity;
     }
 
     public static User toDomain(UserModel entity) {
-        return new User(entity.id, entity.uuid, entity.email);
+        return new User(entity.getId(), entity.getUuid(), entity.email);
     }
 }
 

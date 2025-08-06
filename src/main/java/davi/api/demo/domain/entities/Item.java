@@ -1,5 +1,10 @@
 package davi.api.demo.domain.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Item extends Entity {
     private String name;
     private int quantityGoal;
@@ -11,30 +16,6 @@ public class Item extends Entity {
         this.quantityGoal = quantityGoal;
         this.quantityReceived = quantityReceived;
         validate();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getQuantityGoal() {
-        return quantityGoal;
-    }
-
-    public void setQuantityGoal(int quantityGoal) {
-        this.quantityGoal = quantityGoal;
-    }
-
-    public int getQuantityReceived() {
-        return quantityReceived;
-    }
-
-    public void setQuantityReceived(int quantityReceived) {
-        this.quantityReceived = quantityReceived;
     }
 
     public void validate() {

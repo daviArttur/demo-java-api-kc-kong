@@ -11,15 +11,7 @@ import java.util.List;
 @Table(name = "item_donation_configs")
 @Getter
 @Setter
-public class ItemDonationConfigModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true, updatable = false)
-    private String uuid;
-
+public class ItemDonationConfigModel extends Model {
     @Column(nullable = false)
     private boolean enabled;
 
