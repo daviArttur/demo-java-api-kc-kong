@@ -14,19 +14,21 @@ import java.util.UUID;
 public class CampaignBuilder {
     private final Campaign campaign = new Campaign();
 
-    public void withBasicCampaignData(DomainCampaignBasicDataDto dto) {
+    public CampaignBuilder withBasicCampaignData(DomainCampaignBasicDataDto dto) {
         campaign.setDescription(dto.description());
         campaign.setTitle(dto.title());
+        return this;
     }
 
-    public void withMoneyDonationConfig(DomainCreateMoneyDonationConfigDto dto) {
+    public CampaignBuilder withMoneyDonationConfig(DomainCreateMoneyDonationConfigDto dto) {
         var config = new MoneyDonationConfig(null, UUID.randomUUID().toString(), dto.enabled());
         config.setGoal(dto.goal());
         config.setUseDescription(dto.useDescription());
         campaign.setMoneyDonationConfig(config);
+        return this;
     }
 
-    public void withItemDonationConfig(DomainCreateItemDonationConfigDto createItemDonationConfigDto) {
+    public CampaignBuilder withItemDonationConfig(DomainCreateItemDonationConfigDto createItemDonationConfigDto) {
         var config = new ItemDonationConfig(null, UUID.randomUUID().toString(), createItemDonationConfigDto.enabled());
         var items = new ArrayList<Item>();
         for (var dto : createItemDonationConfigDto.createItemsDto()) {
@@ -35,6 +37,7 @@ public class CampaignBuilder {
         }
         config.setItems(items);
         campaign.setItemDonationConfig(config);
+        return this;
     }
 
     public Campaign build() {
