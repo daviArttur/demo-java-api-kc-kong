@@ -1,12 +1,12 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
 @Table(name = "items")
 public class ItemModel extends Model {
     @Column(nullable = false, length = 100)

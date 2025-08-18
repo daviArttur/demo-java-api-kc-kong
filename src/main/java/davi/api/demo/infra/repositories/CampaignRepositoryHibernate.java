@@ -3,7 +3,7 @@ package davi.api.demo.infra.repositories;
 import davi.api.demo.domain.entities.Campaign;
 import davi.api.demo.domain.repositories.CampaignRepository;
 import davi.api.demo.infra.mappers.CampaignMapper;
-import davi.api.demo.infra.repositories.models.CampaignModel;
+import davi.api.demo.infra.models.CampaignModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,11 +12,10 @@ import java.util.List;
 
 interface CampaignJpaRepository extends JpaRepository<CampaignModel, Long> {}
 
-
 @Repository
 public class CampaignRepositoryHibernate implements CampaignRepository {
 
-    private CampaignJpaRepository campaignJpaRepository;
+    private final CampaignJpaRepository campaignJpaRepository;
 
     @Autowired
     CampaignRepositoryHibernate(CampaignJpaRepository campaignJpaRepository) {

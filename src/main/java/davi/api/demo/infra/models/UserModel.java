@@ -1,4 +1,4 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
 import jakarta.persistence.*;
 

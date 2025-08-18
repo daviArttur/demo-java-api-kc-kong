@@ -4,12 +4,10 @@ package davi.api.demo.infra.repositories;
 
 import davi.api.demo.domain.entities.User;
 import davi.api.demo.domain.repositories.UserRepository;
-import davi.api.demo.infra.repositories.models.UserModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import davi.api.demo.infra.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

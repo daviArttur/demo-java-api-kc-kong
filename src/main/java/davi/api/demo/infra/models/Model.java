@@ -1,9 +1,6 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +8,7 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@MappedSuperclass
 public abstract class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +17,12 @@ public abstract class Model {
     @Column(nullable = false, unique = true, updatable = false)
     protected String uuid;
 
-    @Column(nullable = false, unique = true, updatable = false)
+    @Column(nullable = false, updatable = false)
     protected Date createdAt;
 
     @Column(nullable = false)
     protected Date updatedAt;
 
-    @Column()
+    @Column(nullable = true)
     protected Date deletedAt;
 }

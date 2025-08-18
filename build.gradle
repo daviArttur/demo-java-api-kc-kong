@@ -42,7 +42,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-test {
-	useJUnitPlatform()
-	include '**/unit/**'
-}
+//test {
+//	useJUnitPlatform()
+//	include '**/unit/**'
+//}

@@ -33,24 +33,24 @@ public class CreateCampaignController {
                 request.description()
         );
 
-        ApplicationCreateMoneyDonationConfigDto moneyConfig = new ApplicationCreateMoneyDonationConfigDto(
-                request.moneyDonationConfig().enabled(),
-                request.moneyDonationConfig().goal(),
-                request.moneyDonationConfig().useDescription()
-        );
+//        ApplicationCreateMoneyDonationConfigDto moneyConfig = new ApplicationCreateMoneyDonationConfigDto(
+//                request.moneyDonationConfig().enabled(),
+//                request.moneyDonationConfig().goal(),
+//                request.moneyDonationConfig().useDescription()
+//        );
+//
+//        ApplicationCreateItemDonationConfigDto itemConfig = new ApplicationCreateItemDonationConfigDto(
+//                request.itemDonationConfig().enabled(),
+//                request.itemDonationConfig().items().stream()
+//                        .map(item -> new ApplicationCreateItemDto(
+//                                item.name(),
+//                                item.quantityGoal(),
+//                                item.quantityReceived()
+//                        ))
+//                        .collect(Collectors.toList())
+//        );
 
-        ApplicationCreateItemDonationConfigDto itemConfig = new ApplicationCreateItemDonationConfigDto(
-                request.itemDonationConfig().enabled(),
-                request.itemDonationConfig().items().stream()
-                        .map(item -> new ApplicationCreateItemDto(
-                                item.name(),
-                                item.quantityGoal(),
-                                item.quantityReceived()
-                        ))
-                        .collect(Collectors.toList())
-        );
-
-        CreateCampaignInput input = new CreateCampaignInput(basicData, moneyConfig, itemConfig);
+        CreateCampaignInput input = new CreateCampaignInput(basicData, null, null);
         createCampaignUseCase.perform(input);
         return ResponseEntity.ok().build();
     }
@@ -70,18 +70,16 @@ public class CreateCampaignController {
             throw new IllegalArgumentException("Description must be between 4 and 999 characters");
         }
 
-        if (request.moneyDonationConfig() == null) {
-            throw new IllegalArgumentException("Money donation config is required");
+        if (request.moneyDonationConfig() != null) {
+            validateMoneyDonationConfig(request.moneyDonationConfig());
         }
-        if (request.itemDonationConfig() == null) {
-            throw new IllegalArgumentException("Item donation config is required");
+        if (request.itemDonationConfig() != null) {
+            validateItemDonationConfig(request.itemDonationConfig());
         }
 
         // Validate money donation config
-        validateMoneyDonationConfig(request.moneyDonationConfig());
 
         // Validate item donation config
-        validateItemDonationConfig(request.itemDonationConfig());
     }
 
     private void validateMoneyDonationConfig(CreateCampaignRequest.MoneyDonationConfigRequest config) {

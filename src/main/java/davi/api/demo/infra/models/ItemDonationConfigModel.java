@@ -1,4 +1,4 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,6 +17,10 @@ public class ItemDonationConfigModel extends Model {
 
     @OneToMany(mappedBy = "donationConfig", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemModel> items = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "campaign_id")
+    private CampaignModel campaign;
 
     public ItemDonationConfigModel() {
         this.uuid = java.util.UUID.randomUUID().toString();

@@ -1,4 +1,4 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,11 +12,9 @@ public class CampaignModel extends Model {
     private String title;
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "money_donation_config_id")
+    @OneToOne(mappedBy = "campaign", cascade = CascadeType.ALL)
     private MoneyDonationConfigModel moneyDonationConfig;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_donation_config_id")
+    @OneToOne(mappedBy = "campaign", cascade = CascadeType.ALL)
     private ItemDonationConfigModel itemDonationConfig;
 }

@@ -1,4 +1,4 @@
-package davi.api.demo.infra.repositories.models;
+package davi.api.demo.infra.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,6 +17,10 @@ public class MoneyDonationConfigModel extends Model {
 
     @Column(length = 500)
     private String useDescription;
+
+    @OneToOne
+    @JoinColumn(name = "campaign_id")
+    private CampaignModel campaign;
 
     public MoneyDonationConfigModel() {
         this.uuid = java.util.UUID.randomUUID().toString();

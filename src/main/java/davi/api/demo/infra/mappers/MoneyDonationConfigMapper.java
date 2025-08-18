@@ -1,7 +1,7 @@
 package davi.api.demo.infra.mappers;
 
 import davi.api.demo.domain.entities.MoneyDonationConfig;
-import davi.api.demo.infra.repositories.models.MoneyDonationConfigModel;
+import davi.api.demo.infra.models.MoneyDonationConfigModel;
 
 public class MoneyDonationConfigMapper {
 

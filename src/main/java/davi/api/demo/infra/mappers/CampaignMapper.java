@@ -1,7 +1,9 @@
 package davi.api.demo.infra.mappers;
 
 import davi.api.demo.domain.entities.Campaign;
-import davi.api.demo.infra.repositories.models.CampaignModel;
+import davi.api.demo.infra.models.CampaignModel;
+
+import java.util.UUID;
 
 public class CampaignMapper {
 
@@ -15,7 +17,7 @@ public class CampaignMapper {
         entity.setDescription(campaign.getDescription());
         entity.setMoneyDonationConfig(MoneyDonationConfigMapper.toEntity(campaign.getMoneyDonationConfig()));
         entity.setItemDonationConfig(ItemDonationConfigMapper.toEntity(campaign.getItemDonationConfig()));
-
+        entity.setUuid(UUID.randomUUID().toString());
         return entity;
     }
 

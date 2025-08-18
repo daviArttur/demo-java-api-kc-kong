@@ -1,8 +1,8 @@
 package davi.api.demo.infra.mappers;
 
 import davi.api.demo.domain.entities.ItemDonationConfig;
-import davi.api.demo.infra.repositories.models.ItemDonationConfigModel;
-import davi.api.demo.infra.repositories.models.ItemModel;
+import davi.api.demo.infra.models.ItemDonationConfigModel;
+import davi.api.demo.infra.models.ItemModel;
 
 import java.util.List;
 
